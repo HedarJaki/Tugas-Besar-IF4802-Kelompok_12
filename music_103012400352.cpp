@@ -75,27 +75,25 @@ void viewMusicByGenre(adrCom c, string genre){
     }
 }
 
-void deleteChildByJudul(adrCom c, string judul){
-    adrMusic m = findElemenChild(c, judul);
+void deleteMusicByJudul(adrCom c, string judul){
+    adrMusic m = findElemenMusic(c, judul);
     if (m != nullptr){
         if (m == c->firstMusic){
-            deleteFirstChild(c, m);
+            deleteFirstMusic(c, m);
             delete m;
         } else {
             adrMusic q = c->firstMusic;
             while (q->next != m){
                 q = q->next;
             }
-
             if (m->next == nullptr){ 
-                deleteLastChild(c, m);
+                deleteLastMusic(c, m);
                 delete m;
             } else { 
-                deleteAfterChild(q, m);
+                deleteAfterMusic(q, m);
                 delete m;
             }
         }
-
         m = nullptr;
     }
 }

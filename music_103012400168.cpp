@@ -10,12 +10,12 @@ adrMusic createMusic(music x){
     return p;
 }
 
-void insertFirst(adrCom p, adrMusic q){
+void insertFirstMusic(adrCom p, adrMusic q){
     q->next = p->firstMusic;
     p->firstMusic = q;
 }
 
-void insertLast(adrCom p, adrMusic q){
+void insertLastMusic(adrCom p, adrMusic q){
     adrMusic x = p->firstMusic;
     while (x->next != nullptr){
         x = x->next;
@@ -23,7 +23,7 @@ void insertLast(adrCom p, adrMusic q){
     x->next = q;
 }
 
-void insertAfter(adrCom p, adrMusic prec, adrMusic q){
+void insertAfterMusic(adrCom p, adrMusic prec, adrMusic q){
     q->next = prec->next;
     prec->next = q;
 }
