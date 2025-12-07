@@ -38,4 +38,16 @@ struct elemenMusic {
 };
 
 
+void createList(listCom &L);
+adrCom createComposer(string nama, int tahun, string genre, string negara);
+void insertFirst(listCom &L, adrCom p);
+void insertLast(listCom &L, adrCom p);
+void insertAfter(listCom &L, adrCom prec, adrCom p);
+void viewComNegara(listCom L, string negara);
+void deleteFirst(listCom &L, adrCom &p);
+void deleteLast(listCom &L, adrCom &p);
+void deleteAfter(listCom &L, adrCom q, adrCom &p);
+adrCom findComp(listCom L, string namaComp);
+void deleteComp(listCom &L, string namaComp);
+void viewCompGenre(listCom L, string genre);
 #endif // COMPOSER_H_INCLUDED
