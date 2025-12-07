@@ -46,7 +46,7 @@ void insertLastCom(listCom &L, adrCom p){
 
 void insertAfterCom(listCom &L, adrCom prec, adrCom p){
     if (prec->next == nullptr){
-        insertLast(L, p);
+        insertLastCom(L, p);
     }else{
         p->next = prec->next;
         p->prev = prec;
@@ -84,11 +84,11 @@ void viewComNegara(listCom L, string negara){
      cout << "-----------------------------------------" << endl;
 
      while (p != nullptr){
-        if (p->infoCom.negaraAsal = negara){
+        if (p->infoCom.negaraAsal == negara){
             found = true;
-            cout << "Nama        : " << P->infoCom.nama << endl;
-            cout << "Tahun Lahir : " << P->infoCom.tahunLahir << endl;
-            cout << "Genre Utama : " << P->infoCom.genreUtama << endl;
+            cout << "Nama        : " << p->infoCom.nama << endl;
+            cout << "Tahun Lahir : " << p->infoCom.tahunLahir << endl;
+            cout << "Genre Utama : " << p->infoCom.genreUtama << endl;
             cout << "-----------------------------------------" << endl;
         }
         p = p->next;

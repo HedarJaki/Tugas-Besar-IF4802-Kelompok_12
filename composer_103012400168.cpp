@@ -43,13 +43,13 @@ void deleteComp(listCom &L, string namaComp){
     adrCom p = findComp(L, namaComp), q;
     if (p != nullptr) {
         if (p == L.first){
-            deleteFirst(L, q);
+            deleteFirstCom(L, q);
             delete q;
         }else if (p == L.last){
-            deleteLast(L, q);
+            deleteLastCom(L, q);
             delete q;
         }else{
-            deleteAfter(L, p->prev, q);
+            deleteAfterCom(L, p->prev, q);
             delete q;
         }
 
@@ -68,4 +68,40 @@ void viewCompGenre(listCom L, string genre){
             << endl;
         }     
     }
+}
+
+adrCom mostMadeMusic(listCom L){
+    adrCom temp = L.first, mostMadeMusic = nullptr;
+    adrMusic tempMusic;
+    int Music, maxMusic = 0;
+    while (temp != nullptr){
+        tempMusic = temp->firstMusic;
+        Music = countMusic(temp);
+        if (Music > maxMusic){
+            mostMadeMusic = temp;
+            maxMusic = Music;
+        }
+        temp = temp->next;
+    }
+}
+
+void viewList(listCom L){
+    adrCom temp = L.first;
+    adrMusic tempMusic;
+
+    while (temp != nullptr){
+        cout << "Nama        : " << temp->infoCom.nama << endl;
+        cout << "Tahun Lahir : " << temp->infoCom.tahunLahir << endl;
+        cout << "negara asal : " << temp->infoCom.negaraAsal << endl;
+        cout << "Genre Utama : " << temp->infoCom.genreUtama << endl;
+        cout << "music : ";
+        tempMusic = temp->firstMusic;
+        while (tempMusic != nullptr){
+            cout << tempMusic->infoMusic.judul << ", ";
+            tempMusic = tempMusic->next;
+        }
+        temp = temp->next;
+        cout << "-----------------------------------------" << endl;
+    }
+    
 }

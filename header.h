@@ -1,47 +1,9 @@
-#ifndef COMPOSER_H_INCLUDED
-#define COMPOSER_H_INCLUDED
+#ifndef HEADER_H_INCLUDED
+#define HEADER_H_INCLUDED
 #include <iostream>
 using namespace std;
-
-//ADT music
-
-typedef struct elemenMusic *adrMusic;
-struct music{
-    string judul;
-    string penyanyi;
-    string genre;
-    int tahunTerbit;
-};
-
-struct elemenMusic {
-    music infoMusic;
-    adrMusic next;
-};
-
-
-//ADT composer
-typedef struct elemenComposer *adrCom;
-struct composer{
-    string nama;
-    int tahunLahir;
-    string genreUtama;
-    string negaraAsal;
-};
-
-struct elemenComposer {
-    composer infoCom;
-    adrCom next;
-    adrCom prev;
-    adrMusic firstMusic;
-};
-
-struct listCom {
-    adrCom first;
-    adrCom last;
-};
-
-
-
+#include "music.h"
+#include "composer.h"
 
 void createListCom(listCom &L);
 adrCom createComposer(string nama, int tahun, string genre, string negara);
@@ -67,4 +29,7 @@ void deleteAfterMusic(adrCom c, adrMusic prec, adrMusic &m);
 adrMusic findElemenMusic(adrCom c, string judul);
 void viewMusicByGenre(adrCom c, string genre);
 void deleteMusicByJudul(adrCom c, string judul);
-#endif // COMPOSER_H_INCLUDED
+int countMusic(adrCom p);
+adrCom mostMadeMusic(listCom L);
+void viewList(listCom L);
+#endif
