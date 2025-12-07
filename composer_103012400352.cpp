@@ -2,7 +2,7 @@
 #include "header.h"
 using namespace std;
 
-void createList(listCom &L){
+void createListCom(listCom &L){
     L.first = nullptr;
     L.last = nullptr;
 }
@@ -22,7 +22,7 @@ adrCom createComposer(string nama, int tahun, string genre, string negara){
     return p;
 }
 
-void insertFirst(listCom &L, adrCom p){
+void insertFirstCom(listCom &L, adrCom p){
     if (L.first == nullptr){
         L.first = p;
         L.last = p;
@@ -33,7 +33,7 @@ void insertFirst(listCom &L, adrCom p){
     }
 }
 
-void insertLast(listCom &L, adrCom p){
+void insertLastCom(listCom &L, adrCom p){
     if (L.first == nullptr){
         L.first = p;
         L.last = p;
@@ -44,15 +44,36 @@ void insertLast(listCom &L, adrCom p){
     }
 }
 
-void insertAfter(listCom &L, adrCom prec, adrCom p){
+void insertAfterCom(listCom &L, adrCom prec, adrCom p){
     if (prec->next == nullptr){
         insertLast(L, p);
     }else{
         p->next = prec->next;
         p->prev = prec;
+        prec->next->prev = p;
         prec->next = p;
-        p->next->prev = p;
     }
+}
+
+void insertByNamaCom(listCom &L, adrCom p){
+    if (L.first == nullptr){
+        L.first = p;
+        L.last = p;
+    }
+    
+    if (p->infoCom.nama < L.first->infoCom.nama){
+        insertFirstCom(L, p);
+    }
+    
+    if (p->infoCom.nama > L.last->infoCom.nama){
+        insertLastCom(L, p);
+    }
+
+    adrCom q = L.first;
+    while (q->next != NULL && q->next->infoCom.nama < p->infoCom.nama) {
+        q = q->next;
+    }
+    insertAfterCom(L, q, p);
 }
 
 void viewComNegara(listCom L, string negara){
@@ -63,11 +84,11 @@ void viewComNegara(listCom L, string negara){
      cout << "-----------------------------------------" << endl;
 
      while (p != nullptr){
-        if (p->infoCom.negaraAsal == negara){
+        if (p->infoCom.negaraAsal = negara){
             found = true;
-            cout << "Nama        : " << p->infoCom.nama << endl;
-            cout << "Tahun Lahir : " << p->infoCom.tahunLahir << endl;
-            cout << "Genre Utama : " << p->infoCom.genreUtama << endl;
+            cout << "Nama        : " << P->infoCom.nama << endl;
+            cout << "Tahun Lahir : " << P->infoCom.tahunLahir << endl;
+            cout << "Genre Utama : " << P->infoCom.genreUtama << endl;
             cout << "-----------------------------------------" << endl;
         }
         p = p->next;

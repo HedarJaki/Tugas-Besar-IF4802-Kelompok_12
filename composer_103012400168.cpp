@@ -3,21 +3,21 @@
 
 using namespace std;
 
-void deleteFirst(listCom &L, adrCom &p){
+void deleteFirstCom(listCom &L, adrCom &p){
     adrCom p = L.first;
     L.first = p->next;
     p->next = nullptr;
     L.first->prev = nullptr;
 }
 
-void deleteLast(listCom &L, adrCom &p){
+void deleteLastCom(listCom &L, adrCom &p){
     adrCom p = L.last;
     L.last = p->prev;
     L.last->next = nullptr;
     p->prev = nullptr;
 }
 
-void deleteAfter(listCom &L, adrCom q, adrCom &p){
+void deleteAfterCom(listCom &L, adrCom q, adrCom &p){
     p = q->next;
     q->next = p->next;
     p->next->prev = q;
