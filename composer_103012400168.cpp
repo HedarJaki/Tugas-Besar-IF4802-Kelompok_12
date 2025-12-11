@@ -96,7 +96,7 @@ void viewList(listCom L){
         cout << "Tahun Lahir : " << temp->infoCom.tahunLahir << endl;
         cout << "negara asal : " << temp->infoCom.negaraAsal << endl;
         cout << "Genre Utama : " << temp->infoCom.genreUtama << endl;
-        cout << "music : ";
+        cout << "music : " << endl;
         tempMusic = temp->firstMusic;
         while (tempMusic != nullptr){
             cout << tempMusic->infoMusic.judul << ", ";
