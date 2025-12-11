@@ -52,10 +52,9 @@ void deleteComp(listCom &L, string namaComp);
 void viewCompGenre(listCom L, string genre);
 adrMusic createMusic(music x);
 void insertFirstMusic(adrCom p, adrMusic q);
-void insertLastMsuic(adrCom p, adrMusic q);
+void insertLastMusic(adrCom p, adrMusic q);
 void insertAfterMusic(adrCom p, adrMusic prec, adrMusic q);
 void insertByTitle(adrCom p, adrMusic q);
-int countMusic(adrCom p);
 void deleteFirstMusic(adrCom c, adrMusic &m);
 void deleteLastMusic(adrCom c, adrMusic &m);
 void deleteAfterMusic(adrCom c, adrMusic prec, adrMusic &m);
@@ -65,5 +64,6 @@ void deleteMusicByJudul(adrCom c, string judul);
 int countMusic(adrCom p);
 adrCom mostMadeMusic(listCom L);
 void viewList(listCom L);
-
+int totalMusic(listCom L);
+int countMusicByGenre(adrCom c, string genre);
 #endif

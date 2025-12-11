@@ -67,6 +67,7 @@ void viewCompGenre(listCom L, string genre){
             << "Asal: " <<p->infoCom.negaraAsal << endl
             << endl;
         }
+        p = p->next;
     }
 }
 

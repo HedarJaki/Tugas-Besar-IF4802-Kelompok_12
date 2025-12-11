@@ -59,21 +59,17 @@ void insertByNamaCom(listCom &L, adrCom p){
     if (L.first == nullptr){
         L.first = p;
         L.last = p;
-    }
-    
-    if (p->infoCom.nama < L.first->infoCom.nama){
+    }else if (p->infoCom.nama < L.first->infoCom.nama){
         insertFirstCom(L, p);
-    }
-    
-    if (p->infoCom.nama > L.last->infoCom.nama){
+    }else if (p->infoCom.nama > L.last->infoCom.nama){
         insertLastCom(L, p);
-    }
-
-    adrCom q = L.first;
-    while (q->next != NULL && q->next->infoCom.nama < p->infoCom.nama) {
+    }else{
+        adrCom q = L.first;
+        while (q->next != NULL && q->next->infoCom.nama < p->infoCom.nama) {
         q = q->next;
+       }
+       insertAfterCom(L, q, p);
     }
-    insertAfterCom(L, q, p);
 }
 
 void viewComNegara(listCom L, string negara){
@@ -97,4 +93,14 @@ void viewComNegara(listCom L, string negara){
      if (!found){
         cout << "Tidak ada composer dari negara tersebut" << endl;
      }
+}
+
+int totalMusic(listCom L) {
+    adrCom p = L.first;
+    int total = 0;
+    while (p != nullptr) {
+        total += countMusic(p);
+        p = p->next;
+    }
+    return total;
 }

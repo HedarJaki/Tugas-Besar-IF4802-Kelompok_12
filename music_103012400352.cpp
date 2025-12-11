@@ -75,7 +75,7 @@ void viewMusicByGenre(adrCom c, string genre){
     }
 }
 
-void deleteChildByJudul(adrCom c, string judul){
+void deleteMusicByJudul(adrCom c, string judul){
     adrMusic m = findElemenMusic(c, judul);
     if (m != nullptr){
         if (m == c->firstMusic){
@@ -95,5 +95,20 @@ void deleteChildByJudul(adrCom c, string judul){
             }
         }
         m = nullptr;
+    }else{
+        cout << "Music dengan judul '" << judul << "' tidak ditemukan." << endl;
     }
+}
+
+int countMusicByGenre(adrCom c, string genre){
+    int total = 0;
+    adrMusic p = c->firstMusic;
+
+    while (p != nullptr){
+        if (p->infoMusic.genre == genre){
+            total++;
+        }
+        p = p->next;
+    }
+    return total;
 }

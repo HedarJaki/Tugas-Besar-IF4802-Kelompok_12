@@ -1,5 +1,6 @@
 #include <iostream>
 #include "header.h"
+#include "tampilan.cpp"
 using namespace std;
 
 int main()
@@ -8,10 +9,10 @@ int main()
     adrCom inputCom;
     adrMusic inputMusic;
     music infoMusic;
-    string nama, genre, negara;
-    int tahunLahir;
-
     createListCom(L);
+    string nama, negara, genre;
+    int tahunLahir;
+    menuAdmin();
     nama = "afi";
     tahunLahir = 2000;
     negara = "cirebon";
@@ -46,7 +47,7 @@ int main()
     genre = "pop";
     inputCom = createComposer(nama, tahunLahir, genre, negara);
     insertAfterCom(L, L.first, inputCom);
-
+    
     viewList(L);
     return 0;
 }
