@@ -33,14 +33,14 @@ adrCom findComp(listCom L, string namaComp){
     }
 
     if (p->infoCom.nama == namaComp){
-        return nullptr;
-    }else {
         return p;
+    }else {
+        return nullptr;
     }
 }
 
-void deleteComp(listCom &L, string namaComp){
-    adrCom p = findComp(L, namaComp), q;
+void deleteComp(listCom &L, adrCom p){
+    adrCom  q;
     if (p != nullptr) {
         if (p == L.first){
             deleteFirstCom(L, q);
