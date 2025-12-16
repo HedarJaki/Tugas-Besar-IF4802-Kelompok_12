@@ -49,7 +49,7 @@ void deleteFirstCom(listCom &L, adrCom &p);
 void deleteLastCom(listCom &L, adrCom &p);
 void deleteAfterCom(listCom &L, adrCom q, adrCom &p);
 adrCom findComp(listCom L, string namaComp);
-void deleteComp(listCom &L, string namaComp);
+void deleteComp(listCom &L, adrCom p);
 void viewCompGenre(listCom L, string genre);
 adrMusic createMusic(music x);
 void insertFirstMusic(adrCom p, adrMusic q);

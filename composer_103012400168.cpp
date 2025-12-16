@@ -32,15 +32,21 @@ adrCom findComp(listCom L, string namaComp){
         p = p->next;
     }
 
+<<<<<<< HEAD
     if (p->infoCom.nama != namaComp){
         return nullptr;
     }else {
+=======
+    if (p->infoCom.nama == namaComp){
+>>>>>>> a70a4355181db28854ac009d092569bb857863d1
         return p;
+    }else {
+        return nullptr;
     }
 }
 
-void deleteComp(listCom &L, string namaComp){
-    adrCom p = findComp(L, namaComp), q;
+void deleteComp(listCom &L, adrCom p){
+    adrCom  q;
     if (p != nullptr) {
         if (p == L.first){
             deleteFirstCom(L, q);
@@ -97,7 +103,7 @@ void viewList(listCom L){
         cout << "Tahun Lahir : " << temp->infoCom.tahunLahir << endl;
         cout << "negara asal : " << temp->infoCom.negaraAsal << endl;
         cout << "Genre Utama : " << temp->infoCom.genreUtama << endl;
-        cout << "music : ";
+        cout << "music : " << endl;
         tempMusic = temp->firstMusic;
         while (tempMusic != nullptr){
             cout << tempMusic->infoMusic.judul << ", ";

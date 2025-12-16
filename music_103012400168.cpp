@@ -29,19 +29,23 @@ void insertAfterMusic(adrCom p, adrMusic prec, adrMusic q){
 }
 
 void insertByTitle(adrCom p, adrMusic q){
-    if (q->infoMusic.judul < p->firstMusic->infoMusic.judul){
-        insertFirstMusic(p, q);
-    }else {
-        adrMusic temp = p->firstMusic;
-        while (temp != nullptr && q->infoMusic.judul > temp->infoMusic.judul){
-            temp = temp->next;
+    if (p->firstMusic != nullptr){
+        if (q->infoMusic.judul < p->firstMusic->infoMusic.judul){
+            insertFirstMusic(p, q);
+        }else {
+            adrMusic temp = p->firstMusic;
+            while (temp != nullptr && q->infoMusic.judul > temp->infoMusic.judul){
+                temp = temp->next;
+            }
+            
+            if (temp->next == nullptr){
+                temp->next = q;
+            }else{
+                insertAfterMusic(p, temp, q);
+            }
         }
-        
-        if (temp->next == nullptr){
-            temp->next = q;
-        }else{
-            insertAfterMusic(p, temp, q);
-        }
+    }else{
+        p->firstMusic = q;
     }
 }
 
