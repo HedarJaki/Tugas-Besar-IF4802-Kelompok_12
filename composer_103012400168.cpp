@@ -32,7 +32,13 @@ adrCom findComp(listCom L, string namaComp){
         p = p->next;
     }
 
+<<<<<<< HEAD
+    if (p->infoCom.nama != namaComp){
+        return nullptr;
+    }else {
+=======
     if (p->infoCom.nama == namaComp){
+>>>>>>> a70a4355181db28854ac009d092569bb857863d1
         return p;
     }else {
         return nullptr;

@@ -112,3 +112,36 @@ int countMusicByGenre(adrCom c, string genre){
     }
     return total;
 }
+
+void viewAllMusic(listCom L){
+    adrCom c = L.first;
+     cout << "\n===== DAFTAR SEMUA MUSIC =====\n";
+
+     while (c != nullptr){
+        adrMusic m = c->firstMusic;
+
+        while (m != nullptr){
+            bool duplicate = false;
+            adrCom x = L.first;
+
+            while (x != c){
+                adrMusic y = x->firstMusic;
+
+                while (y != nullptr){
+                    if (y->infoMusic.judul == m->infoMusic.judul){
+                        duplicate = true;
+                    }
+                    y = y->next;
+                }
+                x = x->next;
+            }
+
+            if (!duplicate){
+                cout << "- " << m->infoMusic.judul << endl;
+            }
+
+            m = m->next;
+        }
+        c = c->next;
+    }
+}

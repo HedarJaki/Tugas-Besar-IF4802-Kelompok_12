@@ -3,9 +3,39 @@
 #include "tampilan.cpp"
 using namespace std;
 
-int main()
-{
+int main(){
     listCom L;
+<<<<<<< HEAD
+    createListCom(L);
+
+    int mainChoice = -1;
+    while (mainChoice != 0) {
+        cout << "\n========= MAIN MENU =========\n";
+        cout << "1. Login as Admin\n";
+        cout << "2. Login as User\n";
+        cout << "0. Exit\n";
+        cout << "=============================\n";
+        cout << "Pilih menu: ";
+        cin >> mainChoice;
+
+        switch (mainChoice) {
+        case 1:
+            adminMenu(L);
+            break;
+        case 2:
+            userMenu(L);
+            break;
+        case 0:
+            cout << "Program selesai.\n";
+            break;
+        default:
+            cout << "Pilihan tidak valid.\n";
+        }
+    viewList(L);
+    return 0;
+    }
+}
+=======
     adrCom inputCom; // menyimpan alamat elemen composer baru atau hasil pencarian
     adrMusic inputMusic; // menyimpan alamat elemen composer baru atau hasil pencarian
     music infoMusic; // data music yang ingin di input
@@ -159,3 +189,4 @@ int main()
         }
     }
 }
+>>>>>>> a70a4355181db28854ac009d092569bb857863d1

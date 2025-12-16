@@ -67,4 +67,7 @@ adrCom mostMadeMusic(listCom L);
 void viewList(listCom L);
 int totalMusic(listCom L);
 int countMusicByGenre(adrCom c, string genre);
+void viewAllMusic(listCom L);
+void adminMenu(listCom &L);
+void userMenu(listCom &L);
 #endif
