@@ -43,6 +43,7 @@ adrCom createComposer(string nama, int tahun, string genre, string negara);
 void insertFirstCom(listCom &L, adrCom p);
 void insertLastCom(listCom &L, adrCom p);
 void insertAfterCom(listCom &L, adrCom prec, adrCom p);
+void insertByNamaCom(listCom &L, adrCom p);
 void viewComNegara(listCom L, string negara);
 void deleteFirstCom(listCom &L, adrCom &p);
 void deleteLastCom(listCom &L, adrCom &p);
@@ -66,4 +67,7 @@ adrCom mostMadeMusic(listCom L);
 void viewList(listCom L);
 int totalMusic(listCom L);
 int countMusicByGenre(adrCom c, string genre);
+void viewAllMusic(listCom L);
+void adminMenu(listCom &L);
+void userMenu(listCom &L);
 #endif

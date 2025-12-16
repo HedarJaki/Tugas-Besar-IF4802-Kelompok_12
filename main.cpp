@@ -3,29 +3,34 @@
 #include "tampilan.cpp"
 using namespace std;
 
-int main()
-{
+int main(){
     listCom L;
-    adrCom inputCom;
-    adrMusic inputMusic;
-    composer infoCom;
-    music infoMusic;
     createListCom(L);
 
-    menuAdmin();
-    
-    for (int i = 1; i <= 5; i++){
-        cout << "INPUT COMPOSER" << endl;
-        cout << "nama: ";
-        cin >> infoCom.nama;
-        cout << "Tahun lahir: ";
-        cin >> infoCom.tahunLahir;
-        cout << "asal: ";
-        cin >> infoCom.negaraAsal;
-        cout << "genre utama: ";
-        cin >> infoCom.genreUtama;
-        cout << endl << endl;
-    }
+    int mainChoice = -1;
+    while (mainChoice != 0) {
+        cout << "\n========= MAIN MENU =========\n";
+        cout << "1. Login as Admin\n";
+        cout << "2. Login as User\n";
+        cout << "0. Exit\n";
+        cout << "=============================\n";
+        cout << "Pilih menu: ";
+        cin >> mainChoice;
+
+        switch (mainChoice) {
+        case 1:
+            adminMenu(L);
+            break;
+        case 2:
+            userMenu(L);
+            break;
+        case 0:
+            cout << "Program selesai.\n";
+            break;
+        default:
+            cout << "Pilihan tidak valid.\n";
+        }
     viewList(L);
     return 0;
+    }
 }
