@@ -62,28 +62,14 @@ int countMusic(adrCom p){
 void showAllMusicFromComposer(adrCom composer){
     adrMusic temp = composer->firstMusic;
     while (temp != nullptr){
+        cout << "------------------------------" << endl;
         cout << "judul: " << temp->infoMusic.judul << endl;
         cout << "penyanyi: " << temp->infoMusic.penyanyi << endl;
         cout << "genre: " << temp->infoMusic.genre << endl;
         cout << "terbit: " << temp->infoMusic.tahunTerbit << endl;
+        cout << "------------------------------" << endl << endl;
         temp = temp->next;
     }
-}
-
-void ShowAllmusicFromList(listCom L){
-    adrCom tempCom = L.first;
-    while (tempCom != nullptr){
-        adrMusic temp = tempCom->firstMusic;
-        while (temp != nullptr){
-            cout << "judul: " << temp->infoMusic.judul << endl;
-            cout << "penyanyi: " << temp->infoMusic.penyanyi << endl;
-            cout << "genre: " << temp->infoMusic.genre << endl;
-            cout << "terbit: " << temp->infoMusic.tahunTerbit << endl;
-            temp = temp->next;
-        }
-        tempCom = tempCom->next;
-    }
-    
 }
 
 void deleteAllMusic(adrCom &composer){
