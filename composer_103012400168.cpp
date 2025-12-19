@@ -31,22 +31,11 @@ adrCom findComp(listCom L, string namaComp){
     while (p != nullptr && p->infoCom.nama != namaComp){
         p = p->next;
     }
-
-<<<<<<< HEAD
-    if (p->infoCom.nama != namaComp){
-        return nullptr;
-    }else {
-=======
-    if (p->infoCom.nama == namaComp){
->>>>>>> a70a4355181db28854ac009d092569bb857863d1
-        return p;
-    }else {
-        return nullptr;
-    }
+    return p;
 }
 
-void deleteComp(listCom &L, adrCom p){
-    adrCom  q;
+void deleteComp(listCom &L, string namaComp){
+    adrCom p = findComp(L, namaComp), q;
     if (p != nullptr) {
         if (p == L.first){
             deleteFirstCom(L, q);
@@ -58,7 +47,6 @@ void deleteComp(listCom &L, adrCom p){
             deleteAfterCom(L, p->prev, q);
             delete q;
         }
-
         p = nullptr;
     }
 }
