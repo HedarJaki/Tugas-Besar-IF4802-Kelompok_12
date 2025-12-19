@@ -45,7 +45,7 @@ void insertLastCom(listCom &L, adrCom p);
 void insertAfterCom(listCom &L, adrCom prec, adrCom p);
 void insertByNamaCom(listCom &L, adrCom p);
 void viewComNegara(listCom L, string negara);
-void deleteFirstCom(listCom &L, adrCom &p);
+void deleteFirstCom(listCom &L, adrCom p);
 void deleteLastCom(listCom &L, adrCom &p);
 void deleteAfterCom(listCom &L, adrCom q, adrCom &p);
 adrCom findComp(listCom L, string namaComp);
@@ -70,4 +70,7 @@ int countMusicByGenre(adrCom c, string genre);
 void viewAllMusic(listCom L);
 void adminMenu(listCom &L);
 void userMenu(listCom &L);
+void showAllMusicFromComposer(adrCom composer);
+void deleteAllMusic(adrCom &composer);
+void ShowAllmusicFromList(listCom L);
 #endif

@@ -3,24 +3,36 @@
 
 using namespace std;
 
-void deleteFirstCom(listCom &L, adrCom &p){
+void deleteFirstCom(listCom &L, adrCom p){
     p = L.first;
     L.first = p->next;
-    p->next = nullptr;
-    L.first->prev = nullptr;
+    if (L.first != nullptr){   
+        p->next = nullptr; 
+        L.first->prev = nullptr;
+    }else {
+        L.last = nullptr;
+    }
 }
 
 void deleteLastCom(listCom &L, adrCom &p){
     p = L.last;
     L.last = p->prev;
-    L.last->next = nullptr;
-    p->prev = nullptr;
+    if (L.last == nullptr){
+        L.last->next = nullptr;
+        p->prev = nullptr;
+    }else{
+        L.first = nullptr;
+    }
 }
 
 void deleteAfterCom(listCom &L, adrCom q, adrCom &p){
     p = q->next;
     q->next = p->next;
-    p->next->prev = q;
+    if (p->next != nullptr){
+        p->next->prev = q;
+    }else{
+        L.last = q;
+    }
     p->next = nullptr;
     p->prev = nullptr;
 }
@@ -39,15 +51,26 @@ void deleteComp(listCom &L, string namaComp){
     if (p != nullptr) {
         if (p == L.first){
             deleteFirstCom(L, q);
+            if (q->firstMusic != nullptr){
+                deleteAllMusic(q);
+            }
             delete q;
         }else if (p == L.last){
             deleteLastCom(L, q);
+            if (q->firstMusic != nullptr){
+                deleteAllMusic(q);
+            }
             delete q;
         }else{
             deleteAfterCom(L, p->prev, q);
+            if (q->firstMusic != nullptr){
+                deleteAllMusic(q);
+            }
             delete q;
         }
-        p = nullptr;
+        cout << "berhasil dihapus" << endl;
+    } else {
+        cout << "composer dengan nama{"<<nama << "} tidak ditemukan"<< endl;
     }
 }
 
@@ -91,13 +114,13 @@ void viewList(listCom L){
         cout << "Tahun Lahir : " << temp->infoCom.tahunLahir << endl;
         cout << "negara asal : " << temp->infoCom.negaraAsal << endl;
         cout << "Genre Utama : " << temp->infoCom.genreUtama << endl;
-        cout << "music : " << endl;
+        cout << "music : " ;
         tempMusic = temp->firstMusic;
         while (tempMusic != nullptr){
             cout << tempMusic->infoMusic.judul << ", ";
             tempMusic = tempMusic->next;
         }
         temp = temp->next;
-        cout << "-----------------------------------------" << endl;
+        cout << endl << "-----------------------------------------" << endl;
     }
 }

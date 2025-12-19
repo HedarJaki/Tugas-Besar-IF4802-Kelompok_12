@@ -2,29 +2,36 @@
 1763795750 source:d:\coding\c++\struktur data\tubes\project_mll\main.cpp
 	<iostream>
 
-1765457869 source:c:\users\hunte\onedrive\desktop\c++\project_mll\composer_103012400352.cpp
+1765464275 source:c:\users\hunte\onedrive\desktop\c++\project_mll\composer_103012400352.cpp
 	<iostream>
 	"header.h"
 
 1765346894 c:\users\hunte\onedrive\desktop\c++\project_mll\test.h
 	<iostream>
 
-1765457842 source:c:\users\hunte\onedrive\desktop\c++\project_mll\main.cpp
+1765642660 source:c:\users\hunte\onedrive\desktop\c++\project_mll\main.cpp
 	<iostream>
 	"header.h"
+	"tampilan.cpp"
 
-1765457850 source:c:\users\hunte\onedrive\desktop\c++\project_mll\music_103012400168.cpp
-	"header.h"
-	<iostream>
-
-1765457859 source:c:\users\hunte\onedrive\desktop\c++\project_mll\music_103012400352.cpp
+1765729659 source:c:\users\hunte\onedrive\desktop\c++\project_mll\music_103012400168.cpp
 	"header.h"
 	<iostream>
 
-1765457880 source:c:\users\hunte\onedrive\desktop\c++\project_mll\composer_103012400168.cpp
+1765464276 source:c:\users\hunte\onedrive\desktop\c++\project_mll\music_103012400352.cpp
 	"header.h"
 	<iostream>
 
-1765457824 c:\users\hunte\onedrive\desktop\c++\project_mll\header.h
+1765640726 source:c:\users\hunte\onedrive\desktop\c++\project_mll\composer_103012400168.cpp
+	"header.h"
+	<iostream>
+
+1765640757 c:\users\hunte\onedrive\desktop\c++\project_mll\header.h
+	<iostream>
+
+1765730017 c:\users\hunte\onedrive\desktop\c++\project_mll\tampilan.cpp
+	<iostream>
+
+1765464276 source:c:\users\hunte\onedrive\desktop\c++\project_mll\tampilan.cpp
 	<iostream>
 
