@@ -17,7 +17,7 @@ void deleteFirstCom(listCom &L, adrCom p){
 void deleteLastCom(listCom &L, adrCom &p){
     p = L.last;
     L.last = p->prev;
-    if (L.last == nullptr){
+    if (L.last != nullptr){
         L.last->next = nullptr;
         p->prev = nullptr;
     }else{
@@ -44,7 +44,7 @@ adrCom findComp(listCom L, string namaComp){
         p = p->next;
     }
  
-    if (p->infoCom.nama != namaComp || p == nullptr){
+    if (p == nullptr || p->infoCom.nama != namaComp ){
         return nullptr;
     }else {
         return p;
@@ -128,7 +128,10 @@ void viewList(listCom L){
         cout << "music : " ;
         tempMusic = temp->firstMusic;
         while (tempMusic != nullptr){
-            cout << tempMusic->infoMusic.judul << ", ";
+            cout << tempMusic->infoMusic.judul ;
+            if (tempMusic->next != nullptr){
+                cout << ", ";
+            }
             tempMusic = tempMusic->next;
         }
         temp = temp->next;

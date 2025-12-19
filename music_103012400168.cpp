@@ -34,7 +34,7 @@ void insertByTitle(adrCom p, adrMusic q){
             insertFirstMusic(p, q);
         }else {
             adrMusic temp = p->firstMusic;
-            while (temp != nullptr && q->infoMusic.judul > temp->infoMusic.judul){
+            while (temp->next != nullptr && q->infoMusic.judul > temp->next->infoMusic.judul){
                 temp = temp->next;
             }
             
@@ -95,3 +95,4 @@ void deleteAllMusic(adrCom &composer){
         }
     }
 }
+
