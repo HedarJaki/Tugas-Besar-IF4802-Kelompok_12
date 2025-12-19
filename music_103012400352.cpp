@@ -6,6 +6,7 @@ using namespace std;
 void deleteFirstMusic(adrCom c, adrMusic &m){
     if (c->firstMusic == nullptr){
         cout << "tidak ada data yang dihapus";
+        m = nullptr;
     }else{
         m = c->firstMusic;
         c->firstMusic = m->next;
