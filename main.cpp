@@ -7,7 +7,9 @@ int main(){
     listCom L;
     createListCom(L);
     
+    createDataInput(L);
     int mainChoice = -1;
+
     while (mainChoice != 0) {
         cout << "\n========= MAIN MENU =========\n";
         cout << "1. Login as Admin\n";
@@ -31,6 +33,7 @@ int main(){
             cout << "Pilihan tidak valid.\n";
         }
     // viewList(L);
-    return 0;
     }
+
+    return 0;
 }

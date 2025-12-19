@@ -60,12 +60,14 @@ void viewMusicByGenre(adrCom c, string genre){
 
     adrMusic p = c->firstMusic;
     bool found = false;
+    cout << "Musik dengan Genre " << genre << " : " << endl;
     while (p != nullptr){
         if (p->infoMusic.genre == genre){
-            cout << "Musik ditemukan." << endl;
+            cout << "------------------------------" << endl;
             cout << "Judul : " << p->infoMusic.judul << endl;
             cout << "Penyanyi: " << p->infoMusic.penyanyi << endl;
             cout << "Tahun: " << p->infoMusic.tahunTerbit << endl;
+            cout << "------------------------------" << endl;
             found = true;
         }
         p = p->next;

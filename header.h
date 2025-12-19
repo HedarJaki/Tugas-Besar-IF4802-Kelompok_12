@@ -73,4 +73,5 @@ void userMenu(listCom &L);
 void showAllMusicFromComposer(adrCom composer);
 void deleteAllMusic(adrCom &composer);
 void ShowAllmusicFromList(listCom L);
+void createDataInput(listCom &L);
 #endif

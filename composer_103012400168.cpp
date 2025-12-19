@@ -17,7 +17,7 @@ void deleteFirstCom(listCom &L, adrCom p){
 void deleteLastCom(listCom &L, adrCom &p){
     p = L.last;
     L.last = p->prev;
-    if (L.last == nullptr){
+    if (L.last != nullptr){
         L.last->next = nullptr;
         p->prev = nullptr;
     }else{
@@ -43,15 +43,27 @@ adrCom findComp(listCom L, string namaComp){
     while (p != nullptr && p->infoCom.nama != namaComp){
         p = p->next;
     }
-    return p;
+ 
+    if (p == nullptr || p->infoCom.nama != namaComp){
+        return nullptr;
+    }else {
+        return p;
+    }
 }
 
-void deleteComp(listCom &L, string namaComp){
-    adrCom p = findComp(L, namaComp), q;
-    if (p != nullptr) {
+void deleteComp(listCom &L, string nama){
+   adrCom  p,q;
+    p = findComp(L, nama);
+    if (L.first == L.last && p == L.first) {
+        q = L.first;
+        L.first = nullptr;
+        L.last = nullptr;
+        delete q;
+    }else if (p != nullptr){
         if (p == L.first){
             deleteFirstCom(L, q);
             if (q->firstMusic != nullptr){
+                cout << "p";
                 deleteAllMusic(q);
             }
             delete q;
@@ -108,8 +120,13 @@ adrCom mostMadeMusic(listCom L){
 void viewList(listCom L){
     adrCom temp = L.first;
     adrMusic tempMusic;
+    int count = 1;
 
     while (temp != nullptr){
+        cout << endl;
+        cout << endl;
+        cout << "Data ke - " << count;
+        cout << endl << "-----------------------------------------" << endl;
         cout << "Nama        : " << temp->infoCom.nama << endl;
         cout << "Tahun Lahir : " << temp->infoCom.tahunLahir << endl;
         cout << "negara asal : " << temp->infoCom.negaraAsal << endl;
@@ -121,6 +138,7 @@ void viewList(listCom L){
             tempMusic = tempMusic->next;
         }
         temp = temp->next;
+        count++;
         cout << endl << "-----------------------------------------" << endl;
     }
 }
