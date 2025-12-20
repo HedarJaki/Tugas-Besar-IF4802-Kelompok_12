@@ -171,12 +171,10 @@ void userMenu(listCom &L){
             break;
         }
         case 7: {
-            adrCom p = mostMadeMusic(L);
-            if (p != nullptr){
-                cout << "Composer dengan music terbanyak: " << p->infoCom.nama << endl;
-                cout << "Jumlah Music: " << countMusic(p) << endl;
-            } else {
-                cout << "Belum ada composer.\n";
+            if (L.first != nullptr){
+                mostMadeMusic(L);
+            }else{
+                cout << "tidak ada composer di dalam list";
             }
             break;
         }
@@ -282,6 +280,76 @@ void createDataInput(listCom &L){
 
     infoMusic = music{
         "Nuvole_Bianche", "Ludovico", "Classical", 2004
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Cornfield_Chase", "Hans_Zimmer", "Film_Score", 2014
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Now_We_Are_Free", "Hans_Zimmer", "EDM", 2000
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Kiss_the_Rain", "Yiruma", "Instrumental", 2003
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "May_Be", "Yiruma", "Instrumental", 2001
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Path_of_the_Wind", "Joe_Hisaishi", "Orchestral", 1988
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Princess_Mononoke_Theme", "Joe_Hisaishi", "EDM", 1997
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Ashitaka_and_San", "Yiruma", "Instrumental", 1997
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Kids_Return", "Ludovico", "Jazz", 1996
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Time_(Remix_Version)", "Alan_Walker", "Ambient", 2018
+    };
+    inputMusic = createMusic(infoMusic);
+    inputCom = findComp(L, infoMusic.penyanyi);
+    insertByTitle(inputCom, inputMusic);
+
+    infoMusic = music{
+        "Night", "Ludovico", "Minimalist", 2015
     };
     inputMusic = createMusic(infoMusic);
     inputCom = findComp(L, infoMusic.penyanyi);

@@ -3,11 +3,11 @@
 
 using namespace std;
 
-void deleteFirstCom(listCom &L, adrCom p){
+void deleteFirstCom(listCom &L, adrCom &p){
     p = L.first;
     L.first = p->next;
+    p->next = nullptr; 
     if (L.first != nullptr){   
-        p->next = nullptr; 
         L.first->prev = nullptr;
     }else {
         L.last = nullptr;
@@ -17,9 +17,9 @@ void deleteFirstCom(listCom &L, adrCom p){
 void deleteLastCom(listCom &L, adrCom &p){
     p = L.last;
     L.last = p->prev;
+    p->prev = nullptr;
     if (L.last != nullptr){
         L.last->next = nullptr;
-        p->prev = nullptr;
     }else{
         L.first = nullptr;
     }
@@ -63,7 +63,6 @@ void deleteComp(listCom &L, string nama){
         if (p == L.first){
             deleteFirstCom(L, q);
             if (q->firstMusic != nullptr){
-                cout << "p";
                 deleteAllMusic(q);
             }
             delete q;
@@ -100,21 +99,30 @@ void viewCompGenre(listCom L, string genre){
     }
 }
 
-adrCom mostMadeMusic(listCom L){
-    adrCom temp = L.first, mostMadeMusic = nullptr;
+void mostMadeMusic(listCom L){
+    adrCom temp = L.first;
     adrMusic tempMusic;
     int Music, maxMusic = 0;
     while (temp != nullptr){
         tempMusic = temp->firstMusic;
         Music = countMusic(temp);
         if (Music > maxMusic){
-            mostMadeMusic = temp;
             maxMusic = Music;
         }
         temp = temp->next;
     }
-
-    return mostMadeMusic;
+    
+    cout << "Composer dengan music terbanyak: " ;
+    temp = L.first;
+    while (temp != nullptr){
+        tempMusic = temp->firstMusic;
+        Music = countMusic(temp);
+        if (Music == maxMusic){
+            cout << temp->infoCom.nama << ", ";
+        }
+        temp = temp->next;
+    }
+    cout <<endl << "Jumlah Music: " << maxMusic << endl;
 }
 
 void viewList(listCom L){
@@ -134,7 +142,10 @@ void viewList(listCom L){
         cout << "music : " ;
         tempMusic = temp->firstMusic;
         while (tempMusic != nullptr){
-            cout << tempMusic->infoMusic.judul << ", ";
+            cout << tempMusic->infoMusic.judul ;
+            if (tempMusic->next != nullptr){
+                cout << ", ";
+            }
             tempMusic = tempMusic->next;
         }
         temp = temp->next;

@@ -32,7 +32,6 @@ int main(){
         default:
             cout << "Pilihan tidak valid.\n";
         }
-    // viewList(L);
     }
 
     return 0;
